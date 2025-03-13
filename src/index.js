@@ -80,6 +80,27 @@ app.post('/registerReceiver', async (req, res) => {
         res.status(500).json({ error: 'Failed to save receiver details' });
     }
 });
+app.post('/donorPost', async (req, res) => {
+    try {
+        const collection = db.collection('donor-posts');
+        const obj = {
+                typeOfDonor,
+                businessName,
+                contactName,
+                mobileNumber,
+                emailId,
+                address,
+                pinCode,
+        } = req.body
+        await collection.insertOne(obj);
+        console.log(obj);
+
+        res.status(201).json({ message: 'Registration successful' });
+    } catch (error) {
+        console.error('Error saving data:', error);
+        res.status(500).json({ error: 'Failed to save receiver details' });
+    }
+});
 
 
 
