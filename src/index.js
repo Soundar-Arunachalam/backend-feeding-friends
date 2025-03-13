@@ -2,11 +2,21 @@ const express =require( "express");
 const { MongoClient } = require('mongodb');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const session = require("express-session");
+const bcrypt = require("bcryptjs");
 const path = require('path');
 const dbURL = "mongodb+srv://praveenkumartv1:1234@praveendb.ac0h0.mongodb.net/?retryWrites=true&w=majority&appName=praveendb";
 const dbName = "receivers";
 //app initialization
 const app = express();
+app.use(
+    session({
+      secret: "your_secret_key", // Change this for production
+      resave: false,
+      saveUninitialized: true,
+      cookie: { secure:true }, // Set `true` in production with HTTPS
+    })
+  );
 const corsOptions = {
     origin: 'https://frontend-feeding-friends.onrender.com', // Your frontend's origin
     optionsSuccessStatus: 200 // Some legacy browsers require this
