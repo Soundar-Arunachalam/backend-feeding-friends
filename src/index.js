@@ -8,7 +8,11 @@ const dbName = "receivers";
 //app initialization
 const app = express();
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: "https://feeding-friends-b21fc.web.app", // Your frontend URL
+    methods: "GET,POST,PUT,DELETE",
+    allowedHeaders: "Content-Type,Authorization"
+  }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
