@@ -1,7 +1,5 @@
 const express =require( "express");
-const serverless = require("serverless-http");
 const { MongoClient } = require('mongodb');
-const router = express.Router();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -17,10 +15,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 let db;
 
 
-router.get("/", (req, res) => {
-    connectToDB();
-    res.send("App is running..");
-});
 
 
 async function connectToDB() {
@@ -35,7 +29,7 @@ async function connectToDB() {
     }
 }
 
-router.post('/registerDonor', async (req, res) => {
+app.post('/registerDonor', async (req, res) => {
     try {
         const collection = db.collection('donor-details');
         const obj = {
@@ -46,7 +40,7 @@ router.post('/registerDonor', async (req, res) => {
                 emailId,
                 address,
                 pinCode,
-        } = req.body;
+        } = req.body
         await collection.insertOne(obj);
         console.log(obj);
 
@@ -59,5 +53,10 @@ router.post('/registerDonor', async (req, res) => {
 
 
 
-app.use("/.netlify/functions/app", router);
-module.exports.handler = serverless(app);
+
+
+//app running
+app.listen(5999,async ()=>{
+    await connectToDB();
+console.log("App is listening in port 5999")
+});
