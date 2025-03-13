@@ -7,12 +7,13 @@ const dbURL = "mongodb+srv://praveenkumartv1:1234@praveendb.ac0h0.mongodb.net/?r
 const dbName = "receivers";
 //app initialization
 const app = express();
-// Middleware
-app.use(cors({
-    origin: "https://feeding-friends-b21fc.web.app", // Your frontend URL
-    methods: "GET,POST,PUT,DELETE",
-    allowedHeaders: "Content-Type,Authorization"
-  }));
+const corsOptions = {
+    origin: 'https://frontend-feeding-friends.onrender.com', // Your frontend's origin
+    optionsSuccessStatus: 200 // Some legacy browsers require this
+  };
+ 
+  // Enable CORS for all routes (or specific routes if you prefer)
+  app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
