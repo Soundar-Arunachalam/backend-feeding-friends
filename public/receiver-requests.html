@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receiver Requests</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="profile-header">
+            <div class="profile-greeting">
+                <p>Hi <span id="user-name">Vijay</span></p>
+                <div class="profile-role">
+                    <h2>You are a <span class="role-text">Donor</span> <i class="fas fa-chevron-down"></i></h2>
+                </div>
+            </div>
+            <div class="notification-icon">
+                <i class="far fa-bell"></i>
+            </div>
+        </div>
+
+        <div class="donor-stats">
+            <div class="donor-level">Super Donor</div>
+            <div class="donor-metrics">
+                <div class="metric">
+                    <p class="metric-label">No of Donations</p>
+                    <p class="metric-value">500</p>
+                </div>
+                <div class="metric">
+                    <p class="metric-label">Feedback received</p>
+                    <p class="metric-value">500</p>
+                </div>
+                <div class="metric">
+                    <p class="metric-label">Points earned</p>
+                    <p class="metric-value">1000</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="donor-tabs">
+            <div class="tab" data-tab="my-post">My Post</div>
+            <div class="tab active" data-tab="receivers-requests">Receivers Requests</div>
+        </div>
+
+        <div class="tab-content hidden" id="my-post-content">
+            <!-- My post content -->
+            <div class="post-item" id="pendingPost">
+                <div class="post-header">
+                    <h3>Food title</h3>
+                </div>
+                <div class="post-details">
+                    <div class="post-image">
+                        <img src="food-placeholder.jpg" alt="Food Image">
+                    </div>
+                    <div class="post-info">
+                        <p>Cooked Food - Veg & NonVeg</p>
+                        <div class="post-tags">
+                            <span class="tag">Veg: 5</span>
+                            <span class="tag">Non-Veg: 5</span>
+                        </div>
+                        <p class="expiry-date">Expiration Date: 15 Feb 2023</p>
+                    </div>
+                </div>
+                <div class="post-status pending">
+                    <i class="fas fa-clock"></i>
+                    <p>Your request is pending</p>
+                </div>
+            </div>
+            <div class="create-donation-container">
+                <p class="donation-prompt">Do you have some food to donate?</p>
+                <button class="create-donation-btn" id="createDonationBtn">
+                    <i class="fas fa-plus"></i> Create Donation Post
+                </button>
+            </div>
+        </div>
+
+        <div class="tab-content" id="receivers-requests-content">
+            <div class="request-list" id="requestList">
+                <div class="request-item">
+                    <div class="request-header">
+                        <p class="requester-name">NGO#1</p>
+                        <p class="request-type">has requested for food</p>
+                    </div>
+                    <div class="request-actions">
+                        <button class="reject-btn" data-request-id="1">Reject</button>
+                        <button class="approve-btn" data-request-id="1">Approve</button>
+                    </div>
+                </div>
+                <div class="request-item">
+                    <div class="request-header">
+                        <p class="requester-name">Individual</p>
+                        <p class="request-type">has requested for food</p>
+                    </div>
+                    <div class="request-actions">
+                        <button class="reject-btn" data-request-id="2">Reject</button>
+                        <button class="approve-btn" data-request-id="2">Approve</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="donation-history">
+                <div class="history-header">
+                    <h3>Donation History</h3>
+                    <a href="#" class="view-all">View all</a>
+                </div>
+                <div class="history-item">
+                    <div class="history-image">
+                        <img src="food-placeholder.jpg" alt="Donation">
+                    </div>
+                    <div class="history-details">
+                        <div class="history-id-date">
+                            <span class="history-id">ID: 324800</span>
+                            <span class="history-date">3 Days AGO</span>
+                        </div>
+                        <p class="history-description">Rice bowl with curry.</p>
+                        <div class="history-tags">
+                            <span class="tag">10 Plate</span>
+                            <span class="tag">Non Veg</span>
+                        </div>
+                        <div class="history-status">
+                            <span class="status-completed">Completed</span>
+                            <div class="history-actions">
+                                <button class="icon-btn"><i class="fas fa-share-alt"></i></button>
+                                <button class="icon-btn"><i class="far fa-copy"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>NGOs Near You</h2>
+                <a href="#" class="see-more">See More</a>
+            </div>
+            <div class="ngo-grid">
+                <div class="ngo-card">
+                    <div class="ngo-image">
+                        <img src="placeholder.jpg" alt="NGO Image">
+                    </div>
+                    <div class="ngo-info">
+                        <p class="ngo-name">NGO Name 1</p>
+                        <p class="ngo-distance">2.5km</p>
+                    </div>
+                </div>
+                <div class="ngo-card">
+                    <div class="ngo-image">
+                        <img src="placeholder.jpg" alt="NGO Image">
+                    </div>
+                    <div class="ngo-info">
+                        <p class="ngo-name">NGO Name 1</p>
+                        <p class="ngo-distance">2.5km</p>
+                    </div>
+                </div>
+                <div class="ngo-card">
+                    <div class="ngo-image">
+                        <img src="placeholder.jpg" alt="NGO Image">
+                    </div>
+                    <div class="ngo-info">
+                        <p class="ngo-name">NGO Name 1</p>
+                        <p class="ngo-distance">2.5km</p>
+                    </div>
+                </div>
+                <div class="ngo-card">
+                    <div class="ngo-image">
+                        <img src="placeholder.jpg" alt="NGO Image">
+                    </div>
+                    <div class="ngo-info">
+                        <p class="ngo-name">NGO Name 1</p>
+                        <p class="ngo-distance">2.5km</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="home.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="message.html" class="nav-item">
+                <i class="far fa-comment-alt"></i>
+                <span>Message</span>
+            </a>
+            <a href="search.html" class="nav-item">
+                <i class="fas fa-search"></i>
+                <span>Search</span>
+            </a>
+            <a href="profile.html" class="nav-item active">
+                <i class="far fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
